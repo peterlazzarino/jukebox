@@ -1,5 +1,7 @@
 **Status:** Archive (code is provided as-is, no updates expected)
 
+# Windows compatible fork of Jukebox AI
+
 # Jukebox
 Code for "Jukebox: A Generative Model for Music"
 
