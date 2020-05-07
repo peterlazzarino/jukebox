@@ -2,6 +2,8 @@
 
 # Windows compatible fork of Jukebox AI
 
+Note: Only tested on sampling with 1b_lyrics. Likely broken for training and 5b.
+
 # Jukebox
 Code for "Jukebox: A Generative Model for Music"
 
