@@ -4,6 +4,8 @@
 
 Note: Only tested on sampling with 1b_lyrics. Likely broken for training and 5b.
 
+Models will need to be manually downloaded
+
 # Jukebox
 Code for "Jukebox: A Generative Model for Music"
 
