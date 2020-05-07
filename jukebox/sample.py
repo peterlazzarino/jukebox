@@ -2,6 +2,13 @@ import os
 import numpy as np
 import torch as t
 
+import sys, os, inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+parentdir = "%s\\health_check"%os.path.dirname(parentdir)
+sys.path.insert(0,parentdir)
+print(parentdir)
+
 from jukebox.hparams import Hyperparams
 from jukebox.utils.torch_utils import empty_cache
 from jukebox.utils.audio_utils import save_wav, load_audio
@@ -159,37 +166,13 @@ def save_samples(model, device, hps, sample_hps):
     assert hps.sample_length//priors[-2].raw_to_tokens >= priors[-2].n_ctx, f"Upsampling needs atleast one ctx in get_z_conds. Please choose a longer sample length"
 
     total_length = hps.total_sample_length_in_seconds * hps.sr
-    offset = 0
-    metas = [dict(artist = "Alan Jackson",
-                  genre = "Country",
-                  lyrics = poems['ozymandias'],
+    offset = 50
+    metas = [dict(artist="Bent Knee",
+                  genre="Art Rock",
+                  lyrics=gpt_2_lyrics['knee'],
                   total_length=total_length,
                   offset=offset,
-                  ),
-             dict(artist="Joe Bonamassa",
-                  genre="Blues Rock",
-                  lyrics=gpt_2_lyrics['hottub'],
-                  total_length=total_length,
-                  offset=offset,
-                  ),
-             dict(artist="Frank Sinatra",
-                  genre="Classic Pop",
-                  lyrics=gpt_2_lyrics['alone'],
-                  total_length=total_length,
-                  offset=offset,
-                  ),
-             dict(artist="Ella Fitzgerald",
-                  genre="Jazz",
-                  lyrics=gpt_2_lyrics['count'],
-                  total_length=total_length,
-                  offset=offset,
-                  ),
-             dict(artist="Celine Dion",
-                  genre="Pop",
-                  lyrics=gpt_2_lyrics['darkness'],
-                  total_length=total_length,
-                  offset=offset,
-                  ),
+                  )
              ]
     while len(metas) < hps.n_samples:
         metas.extend(metas)

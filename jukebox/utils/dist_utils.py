@@ -19,11 +19,6 @@ def allgather(x):
     xs = torch.cat(xs, dim=0)
     return xs
 
-def allreduce(x, op=dist.ReduceOp.SUM):
-    x = torch.tensor(x).float().cuda()
-    dist.all_reduce(x, op=op)
-    return x.item()
-
 def allgather_lists(xs):
     bs = len(xs)
     total_bs = dist.get_world_size()*len(xs)
@@ -68,9 +63,6 @@ def setup_dist_from_mpi(
     # We guard against the failure and then retry
     for attempt_idx in range(n_attempts):
         try:
-            dist.init_process_group(backend=backend, init_method=f"env://")
-            assert dist.get_rank() == mpi_rank
-
             use_cuda = torch.cuda.is_available()
             print(f'Using cuda {use_cuda}')
             local_rank = mpi_rank % 8

@@ -10,11 +10,18 @@ Code for "Jukebox: A Generative Model for Music"
 
 # Install
 ``` 
+
+# Required:
+
+Windows PC w/ Nvidia graphics card
+
 # Required: Sampling
 conda create --name jukebox python=3.7.5
 conda activate jukebox
-conda install mpi4py=3.0.3
-conda install pytorch=1.4 torchvision=0.5 cudatoolkit=10.0 -c pytorch
+install Visual Studio 2017 (https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) with the last SDK Win10 and C++ Dev Tools
+install MPI Tools and SDK (https://www.microsoft.com/en-us/download/details.aspx?id=57467)
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+pip install mpi4py
 git clone https://github.com/openai/jukebox.git
 cd jukebox
 pip install -r requirements.txt

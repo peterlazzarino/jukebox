@@ -64,7 +64,6 @@ class SimplePrior(nn.Module):
                                                           down_t=downs_t[_level],
                                                           stride_t=strides_t[_level],
                                                           **x_cond_kwargs)
-            if dist.get_rank() == 0: print(f"Conditioning on 1 above level(s)")
             self.conditioner_blocks.append(conditioner_block(self.cond_level))
 
         # Y conditioning
@@ -243,9 +242,6 @@ class SimplePrior(nn.Module):
                 assert z_cond.shape[0] == N,  f"Expected shape ({N},**), got shape {z_cond.shape}"
 
         no_past_context = (z is None or z.shape[1] == 0)
-        if dist.get_rank() == 0:
-            name = {True: 'Ancestral', False: 'Primed'}[no_past_context]
-            print(f"{name} sampling {n_samples} samples with temp={temp}, top_k={top_k}, top_p={top_p}")
 
         with t.no_grad():
             # Currently x_cond only uses immediately above layer

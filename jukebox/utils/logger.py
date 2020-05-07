@@ -9,10 +9,7 @@ def def_tqdm(x):
     return tqdm(x, leave=True, file=sys.stdout, bar_format="{n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}{postfix}]")
 
 def get_range(x):
-    if dist.get_rank() == 0:
-        return def_tqdm(x)
-    else:
-        return x
+    return x
 
 def init_logging(hps, local_rank, rank):
     logdir = f"{hps.local_logdir}/{hps.name}"

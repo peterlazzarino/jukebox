@@ -604,7 +604,27 @@ Body...
 Your... love...
 I... can't... stop... your... love...
 ''',
+'knee':'''Candles lighting windows
+But the neighborhood is cold
+Heartstrings galvanize feelings
+Every thought is a transient chemical
+Crises come with machetes
+Harvesting the reactions, the moldy flavor of apathy
+Trying to find the words to say
+To take the visceral pain away
+Terror bird, please eat me out
+I want to live with the murder
+Limelight eases emotion
+Tiny bodies piling up, blinded by the cries for help
+Can't feel it
+I can't see it
+I can't touch it
+I am an inanimate
+Tiny bodies piling up, blinded by the cries for help
+I can't feel
+I can't feel
 
+''',
 'darkness':'''Don't you know it's gonna be alright
 Let the darkness fade away
 And you, you gotta feel the same
